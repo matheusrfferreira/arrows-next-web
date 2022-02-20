@@ -1,6 +1,8 @@
 {
-  "name": "teste-reactjs-basico",
+  "name": "Arrows",
   "private": true,
+  "version": "1.0.1",
+  "description": "",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -17,6 +19,8 @@
     "@chakra-ui/react": "^1.8.1",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
+    "@fontsource/open-sans": "^4.5.5",
+    "@fontsource/raleway": "^4.5.3",
     "axios": "^0.25.0",
     "dotenv": "^14.3.2",
     "framer-motion": "^5",

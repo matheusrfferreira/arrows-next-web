@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Modal, Select, FormControl, Input, FormLabel, 
   Button, Badge, Center, useDisclosure, ModalOverlay,
-  ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton,
+  ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton, useColorModeValue
   } from '@chakra-ui/react';
 import { SettingsIcon } from '@chakra-ui/icons';
 import axios from "axios";
@@ -69,19 +69,25 @@ export default function EditUser({ user }){
   };
 
   return <>
-      <Button onClick={onOpen}> <SettingsIcon/> </Button>
+    <Button onClick={onOpen} w={'full'}
+            mt={8}
+            rounded={'md'}
+            _hover={{
+              transform: 'translateY(-2px)',
+              boxShadow: 'lg',
+            }}> Edit User </Button>
       <Modal
         isOpen={isOpen}
         onClose={onClose}
       >
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Editar Usuário</ModalHeader>
+          <ModalHeader>Edit User</ModalHeader>
           <ModalCloseButton />
           <ModalBody pb={6}>
             <form id="edit-user-form" onSubmit={handleSubmit}>
             <FormControl>
-              <FormLabel>Nome</FormLabel>
+              <FormLabel>Name</FormLabel>
               <Input required value={formState.name} name="name" onChange={handleChange} />
             </FormControl>
             <FormControl mt={4}>
@@ -91,15 +97,15 @@ export default function EditUser({ user }){
             <FormControl mt={4}>
               <FormLabel>Status</FormLabel>
               <Select required value={formState.status} name="status" onChange={handleChange}>
-                <option value='active'>Ativo</option>
-                <option value='inactive'>Inativo</option>
+                <option value='active'>Active</option>
+                <option value='inactive'>Inactive</option>
               </Select>
             </FormControl>
             <FormControl mt={4}>
-              <FormLabel>Gênero</FormLabel>
+              <FormLabel>Gender</FormLabel>
               <Select required value={formState.gender} name="gender" onChange={handleChange}>
-                <option value='male'>Masculino</option>
-                <option value='female'>Feminino</option>
+                <option value='male'>Male</option>
+                <option value='female'>Female</option>
               </Select>
             </FormControl>
             </form>
@@ -114,9 +120,9 @@ export default function EditUser({ user }){
           <ModalFooter>
             <Button type="submit" form="edit-user-form" colorScheme='blue' mr={3} 
             isLoading={saving} loadingText='Salvando'>
-              Salvar
+              Save
             </Button>
-            <Button onClick={onClose}>Cancelar</Button>
+            <Button onClick={onClose}>Cancel</Button>
           </ModalFooter>
         </ModalContent>
       </Modal>
